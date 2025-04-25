@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MonarchX - Play Chess for Crypto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 50px;
+      color: gold;
+    }
+    p {
+      font-size: 18px;
+      color: #ccc;
+    }
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .connect {
+      background-color: #111;
+      color: #0ff;
+      border: 2px solid #0ff;
+    }
+    .play {
+      background-color: gold;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>MonarchX</h1>
+  <p>Play Chess. Win Crypto. Powered by USDT</p>
+
+  <button class="btn connect" onclick="connectWallet()">Connect Wallet</button>
+  <button class="btn play">Play Now</button>
+
+  <script>
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          alert("Wallet connected: " + accounts[0]);
+        } catch (error) {
+          alert("Connection failed!");
+        }
+      } else {
+        alert("MetaMask not installed!");
+      }
+    }
+  </script>
+
+</body>
+</html>
