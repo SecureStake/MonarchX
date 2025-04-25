@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MonarchX - Play Chess for Crypto</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MonarchX</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
       background-color: #0d0d0d;
       color: #fff;
-      text-align: center;
-      padding-top: 100px;
+      height: 100vh;
+      border: 8px solid gold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding-top: 40px;
+      position: relative;
     }
+
+    .logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
     h1 {
-      font-size: 50px;
       color: gold;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
     }
-    p {
-      font-size: 18px;
-      color: #ccc;
+
+    .ticker-wrapper {
+      width: 100%;
+      background: #1a1a1a;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: inset 0 -1px 0 #333;
+      padding: 10px 0;
+      position: absolute;
+      top: 0;
+      border-bottom: 2px solid gold;
     }
+
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 15s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
     .btn {
       padding: 15px 30px;
       font-size: 18px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      margin: 10px;
+      margin: 20px;
     }
+
     .connect {
       background-color: #111;
       color: #0ff;
       border: 2px solid #0ff;
     }
+
     .play {
       background-color: gold;
       color: black;
@@ -41,8 +82,18 @@
 </head>
 <body>
 
+  <!-- Ticker Top Panel -->
+  <div class="ticker-wrapper">
+    <div class="ticker">
+      AyushSingh won 5 USDT   —   KaranX won 3 USDT   —   LuckyKnight won 10 USDT   —   Grandmaster12 won 7.5 USDT   —   ChessLord won 4 USDT
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <img src="logo.png" alt="MonarchX Logo" class="logo" />
+
   <h1>MonarchX</h1>
-  <p>Play Chess. Win Crypto. Powered by USDT</p>
+  <p>Play Chess. Win Crypto.</p>
 
   <button class="btn connect" onclick="connectWallet()">Connect Wallet</button>
   <button class="btn play">Play Now</button>
