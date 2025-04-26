@@ -44,3 +44,45 @@
   font-size: 16px;
   color: #ccc;
 }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  background: #0d0d0d; /* dark background */
+  color: white;
+}
+
+.logo {
+  max-width: 160px;
+  margin-bottom: 20px;
+}
+
+.tagline {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.gold-btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  background: linear-gradient(45deg, #ffd700, #ff9900);
+  border: none;
+  border-radius: 12px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px #ffd700aa;
+}
+
+.gold-btn:hover {
+  transform: scale(1.05);
+}
