@@ -1,106 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
- <link rel="stylesheet" href="style.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MonarchX</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      overflow: hidden;
-    }
-
-    .logo {
-      width: 200px;
-      filter: drop-shadow(0 0 25px #FFD700);
-      margin-bottom: 20px;
-    }
-
-    .tagline {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #ffffff;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px #ffffff;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .btn {
-      width: 90%;
-      max-width: 350px;
-      padding: 16px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #000;
-      background: linear-gradient(90deg, #FFD700, #FFA500);
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 0 20px #FFD700;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px #FFD700;
-    }
-  </style>
+  <title>MonarchX - Chess Crypto Battles</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <img src="https://raw.githubusercontent.com/SecureStake/MonarchX/refs/heads/main/logo.png.PNG" alt="MonarchX Logo" class="logo" />
 
-  <div class="tagline">Play Chess. Win Crypto.</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="logo.png" alt="MonarchX Logo" class="logo" />
+    <p class="tagline">PLAY CHESS. WIN CRYPTO.</p>
+    <button class="gold-btn">Get Started</button>
+  </section>
 
-  <button class="btn">Get Started</button> 
-  <!-- How It Works Section (add this in index.html) -->
-<section id="how-it-works">
-  <h2 class="section-title">How It Works</h2>
-  <div class="steps-container">
-    <div class="step" data-aos="fade-up">
-      <h3>Create Account</h3>
-      <p>Get started instantly and unlock your path to victory!</p>
-    </div>
-    <div class="step" data-aos="fade-up">
-      <h3>Deposit USDT</h3>
-      <p>Fuel your journey: securely deposit USDT to power your ambitions!</p>
-    </div>
-    <div class="step" data-aos="fade-up">
-      <h3>Join Battles</h3>
-      <p>Enter the arena and prove your dominance against challengers!</p>
-    </div>
-    <div class="step" data-aos="fade-up">
-      <h3>Win &amp; Earn</h3>
-      <p>Secure victories, earn rewards, and climb the ranks to success!</p>
-    </div>
-    <div class="step" data-aos="fade-up">
-      <h3>Withdraw Funds</h3>
-      <p>Cash out safely and celebrate the rewards of your victories!</p>
-    </div>
-  </div>
- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true
-  });
-</script>
-</section>
+  <!-- Info Section -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <p>Register and log in to your account. Compete in skill-based chess battles with real crypto prizes.</p>
+    <p>Deposit USDT into your wallet pool to enter matches and tournaments.</p>
+    <p>Win games to earn rewards. Withdraw your USDT anytime securely.</p>
+    <p>Create your account to increase the crypto with you just by playing and winning.</p>
+  </section>
+
 </body>
 </html>
