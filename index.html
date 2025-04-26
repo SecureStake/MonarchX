@@ -10,108 +10,65 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0d0d;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: #fff;
       height: 100vh;
-      border: 8px solid gold;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: start;
-      padding-top: 40px;
-      position: relative;
+      justify-content: center;
+      border: 5px solid #0ff;
+      padding: 20px;
     }
 
     .logo {
-      width: 180px;
+      width: 200px;
       height: auto;
       margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px #0ff);
     }
 
-    h1 {
-      color: gold;
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
-
-    .ticker-wrapper {
-      width: 100%;
-      background: #1a1a1a;
-      overflow: hidden;
-      white-space: nowrap;
-      box-shadow: inset 0 -1px 0 #333;
-      padding: 10px 0;
-      position: absolute;
-      top: 0;
-      border-bottom: 2px solid gold;
-    }
-
-    .ticker {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll 15s linear infinite;
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
+    .tagline {
+      font-size: 1.5rem;
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff;
+      margin-bottom: 40px;
+      text-align: center;
     }
 
     .btn {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
+      width: 90%;
+      max-width: 350px;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0f0;
+      background: #000;
+      border: 2px solid #0f0;
       border-radius: 10px;
       cursor: pointer;
-      margin: 20px;
+      box-shadow: 0 0 15px #0f0;
+      transition: all 0.3s ease;
     }
 
-    .connect {
-      background-color: #111;
-      color: #0ff;
-      border: 2px solid #0ff;
-    }
-
-    .play {
-      background-color: gold;
-      color: black;
+    .btn:hover {
+      background: #0f0;
+      color: #000;
+      box-shadow: 0 0 30px #0f0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Ticker Top Panel -->
-  <div class="ticker-wrapper">
-    <div class="ticker">
-      AyushSingh won 5 USDT   —   KaranX won 3 USDT   —   LuckyKnight won 10 USDT   —   Grandmaster12 won 7.5 USDT   —   ChessLord won 4 USDT
-    </div>
-  </div>
-
-  <!-- Logo -->
   <img src="logo.png" alt="MonarchX Logo" class="logo" />
 
-  <h1>MonarchX</h1>
-  <p>Play Chess. Win Crypto.</p>
+  <div class="tagline">Play Chess. Win Crypto.</div>
 
-  <button class="btn connect" onclick="connectWallet()">Connect Wallet</button>
-  <button class="btn play">Play Now</button>
-
-  <script>
-    async function connectWallet() {
-      if (window.ethereum) {
-        try {
-          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          alert("Wallet connected: " + accounts[0]);
-        } catch (error) {
-          alert("Connection failed!");
-        }
-      } else {
-        alert("MetaMask not installed!");
-      }
-    }
-  </script>
+  <button class="btn">Get Started</button>
 
 </body>
 </html>
