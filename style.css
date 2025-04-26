@@ -1,0 +1,46 @@
+#how-it-works {
+  background: #0d0d0d;
+  padding: 50px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+#how-it-works .section-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.step {
+  background: linear-gradient(135deg, #1f1f1f, #292929);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: scale(1.05);
+}
+
+.step h3 {
+  font-size: 24px;
+  color: #ffd700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.step p {
+  font-size: 16px;
+  color: #ccc;
+}
