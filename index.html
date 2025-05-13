@@ -4,19 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MonarchX</title>
+  <style>
+    /* --- Reset & Base --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-  <!-- Link to the external CSS file -->
-  <link rel="stylesheet" href="styles.css">
+    /* --- Logo --- */
+    .logo img {
+      width: 200px;
+      filter: drop-shadow(0 0 20px #FFD700);
+      margin-bottom: 20px;
+    }
+
+    /* --- Tagline --- */
+    .tagline {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
+      margin-bottom: 40px;
+    }
+
+    /* --- Button Base --- */
+    .btn {
+      display: inline-block;
+      padding: 15px 40px;
+      margin: 10px 0;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      width: 80%;
+      max-width: 300px;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    /* --- Primary (Gold) --- */
+    .btn.primary {
+      background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+      background-size: 300% 300%;
+      color: #000;
+      box-shadow: 0 0 20px #FFD700, 0 0 30px #FFA500;
+      animation: glow-gold 2s infinite alternate, move-gold 6s ease infinite;
+    }
+    @keyframes glow-gold {
+      from { box-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500; }
+      to   { box-shadow: 0 0 30px #FFD700, 0 0 40px #FFA500; }
+    }
+    @keyframes move-gold {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* --- Secondary (Cyan) --- */
+    .btn.secondary {
+      background: linear-gradient(90deg, #00f0ff, #00bcd4, #00f0ff);
+      background-size: 300% 300%;
+      color: #000;
+      box-shadow: 0 0 20px #00f0ff, 0 0 30px #00bcd4;
+      animation: glow-cyan 2s infinite alternate, move-cyan 6s ease infinite;
+    }
+    @keyframes glow-cyan {
+      from { box-shadow: 0 0 10px #00f0ff, 0 0 20px #00bcd4; }
+      to   { box-shadow: 0 0 30px #00f0ff, 0 0 40px #00bcd4; }
+    }
+    @keyframes move-cyan {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- Logo -->
   <div class="logo">
-    <img src="your-logo.png" alt="MonarchX Logo">
+    <img src="logo.png" alt="MonarchX Logo">
   </div>
 
-  <h1>PLAY CHESS. WIN CRYPTO.</h1>
+  <!-- Tagline -->
+  <div class="tagline">PLAY CHESS. WIN CRYPTO.</div>
 
-  <a href="login.html" class="start-button">GET STARTED</a>
+  <!-- Action Buttons -->
+  <a href="login.html" class="btn primary">Login</a>
+  <a href="signup.html" class="btn secondary">Sign Up</a>
 
 </body>
 </html>
