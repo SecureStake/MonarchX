@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | MonarchX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; }
+    p { margin-bottom: 10px; }
+    .btn-logout {
+      padding: 12px 30px;
+      background: #FFD700;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to MonarchX!</h1>
+  <p id="userEmail">Loading your email…</p>
+  <p>Your stats:</p>
+  <ul id="statsList">
+    <li>Wins: </li>
+    <li>Losses: </li>
+    <li>Draws: </li>
+    <li>Earnings: </li>
+  </ul>
+
+  <button class="btn-logout" id="logoutBtn">Log Out</button>
+
+  <script>
+    // Fetch current user
+    const email = localStorage.getItem('currentUser');
+    const users = JSON.parse(localStorage.getItem('monarchx_users') || '{}');
+    const user = users[email] || {};
+
+    // Populate email and stats
+    document.getElementById('userEmail').innerText = email;
+    const stats = document.getElementById('statsList').children;
+    stats[0].innerText = 'Wins: ' + (user.wins || 0);
+    stats[1].innerText = 'Losses: ' + (user.losses || 0);
+    stats[2].innerText = 'Draws: ' + (user.draws || 0);
+    stats[3].innerText = 'Earnings: ' + (user.earnings || 0) + ' USDT';
+
+    // Log out handler
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('currentUser');
+      window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
+</html>
