@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up | MonarchX</title>
+  <style>
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    /* Logo */
+    .logo img {
+      width: 160px;
+      filter: drop-shadow(0 0 20px #FFD700);
+      margin-bottom: 20px;
+    }
+    /* Form Container */
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #000;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      background: #2a2a2a;
+      color: #fff;
+      font-size: 1rem;
+    }
+    /* Sign Up Button */
+    .btn-signup {
+      display: block;
+      width: 100%;
+      background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+      background-size: 300% 300%;
+      color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 16px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #FFD700, 0 0 30px #FFA500;
+      animation: glow 2s infinite alternate, move 6s ease infinite;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .btn-signup:hover { transform: scale(1.02); }
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500; }
+      to   { box-shadow: 0 0 30px #FFD700, 0 0 40px #FFA500; }
+    }
+    @keyframes move {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Terms Text */
+    .terms {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 15px;
+    }
+    .terms a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .terms a:hover {
+      text-decoration: underline;
+    }
+    /* Footer Link */
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: #00f0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/SecureStake/MonarchX/refs/heads/main/1745651242860.png" alt="MonarchX Logo">
+  </div>
+
+  <div class="form-container">
+    <input type="email" id="email" placeholder="Email Address" />
+    <input type="password" id="password" placeholder="Password" />
+    <button class="btn-signup" id="signupBtn">Create Account</button>
+    <div class="terms">
+      By signing up, you agree to our <a href="#" id="tacLink">Terms &amp; Conditions</a>.
+    </div>
+  </div>
+
+  <div class="footer">
+    Already have an account? <a href="login.html">Login</a>
+  </div>
+
+  <script>
+    // Simple localStorage-based account saving
+    document.getElementById('signupBtn').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      const pwd = document.getElementById('password').value;
+      if (!email || !pwd) {
+        alert('Please enter both email and password.');
+        return;
+      }
+      // Load existing users or create new object
+      const users = JSON.parse(localStorage.getItem('monarchx_users') || '{}');
+      if (users[email]) {
+        alert('An account with this email already exists.');
+        return;
+      }
+      // Save new user
+      users[email] = { password: pwd, wins: 0, losses: 0, draws: 0, earnings: 0 };
+      localStorage.setItem('monarchx_users', JSON.stringify(users));
+      // Log in the user
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('currentUser', email);
+      // Redirect to dashboard (create this page next)
+      window.location.href = 'dashboard.html';
+    });
+
+    // Terms & Conditions placeholder
+    document.getElementById('tacLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Terms & Conditions page coming soon!');
+    });
+  </script>
+
+</body>
+</html>
