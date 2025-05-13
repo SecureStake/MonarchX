@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MonarchX</title>
   <style>
     /* --- Reset & Base --- */
@@ -17,6 +17,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 20px;
     }
 
     /* --- Logo --- */
@@ -36,54 +37,37 @@
       margin-bottom: 40px;
     }
 
-    /* --- Button Base --- */
-    .btn {
-      display: inline-block;
-      padding: 15px 40px;
-      margin: 10px 0;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-decoration: none;
-      width: 80%;
-      max-width: 300px;
-      cursor: pointer;
-      transition: transform .2s;
-    }
-    .btn:hover { transform: scale(1.05); }
-
-    /* --- Primary (Gold) --- */
-    .btn.primary {
+    /* --- Get Started Button --- */
+    .start-btn {
+      display: block;
+      width: 100%;
+      max-width: 400px;
       background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
       background-size: 300% 300%;
       color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
       box-shadow: 0 0 20px #FFD700, 0 0 30px #FFA500;
-      animation: glow-gold 2s infinite alternate, move-gold 6s ease infinite;
+      animation: glow 2s infinite alternate, move 6s ease infinite;
+      text-decoration: none;
+      text-align: center;
+      margin: 0 auto;
+      transition: transform 0.2s;
     }
-    @keyframes glow-gold {
+    .start-btn:hover {
+      transform: scale(1.02);
+    }
+
+    @keyframes glow {
       from { box-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500; }
       to   { box-shadow: 0 0 30px #FFD700, 0 0 40px #FFA500; }
     }
-    @keyframes move-gold {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* --- Secondary (Cyan) --- */
-    .btn.secondary {
-      background: linear-gradient(90deg, #00f0ff, #00bcd4, #00f0ff);
-      background-size: 300% 300%;
-      color: #000;
-      box-shadow: 0 0 20px #00f0ff, 0 0 30px #00bcd4;
-      animation: glow-cyan 2s infinite alternate, move-cyan 6s ease infinite;
-    }
-    @keyframes glow-cyan {
-      from { box-shadow: 0 0 10px #00f0ff, 0 0 20px #00bcd4; }
-      to   { box-shadow: 0 0 30px #00f0ff, 0 0 40px #00bcd4; }
-    }
-    @keyframes move-cyan {
+    @keyframes move {
       0%   { background-position: 0% 50%; }
       50%  { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -94,15 +78,27 @@
 
   <!-- Logo -->
   <div class="logo">
-    <img src="logo.png" alt="MonarchX Logo">
+    <img src="logo.png" alt="MonarchX Logo" />
   </div>
 
   <!-- Tagline -->
   <div class="tagline">PLAY CHESS. WIN CRYPTO.</div>
 
-  <!-- Action Buttons -->
-  <a href="login.html" class="btn primary">Login</a>
-  <a href="signup.html" class="btn secondary">Sign Up</a>
+  <!-- Get Started -->
+  <a href="#" id="getStarted" class="start-btn">Get Started</a>
 
+  <script>
+    document.getElementById('getStarted').addEventListener('click', function(e) {
+      e.preventDefault();
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      if (isLoggedIn) {
+        // User already logged in: go to dashboard
+        window.location.href = 'dashboard.html';
+      } else {
+        // Not logged in: go to login page
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
 </body>
 </html>
